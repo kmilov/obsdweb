@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vault</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <div id="sidebar-head">
+      <span>vault</span>
+      <span id="head-btns">
+        <button id="toggle-theme" title="Toggle theme (Cmd/Ctrl+Shift+D)">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <button id="logout" title="Log out">⏻</button>
+        <button id="toggle-sidebar" title="Toggle sidebar (Cmd/Ctrl+Shift+L)">☰</button>
+        <button id="new-note" title="New note (Cmd/Ctrl+Alt+N)">+</button>
+      </span>
+    </div>
+    <nav id="tree"></nav>
+    <div id="backlinks" class="hidden">
+      <div id="backlinks-head">Backlinks</div>
+      <div id="backlinks-list"></div>
+    </div>
+  </aside>
+
+  <main>
+    <div id="tabbar">
+      <button id="open-sidebar" title="Open sidebar (Cmd/Ctrl+Shift+L)">☰</button>
+      <button id="scroll-left" class="tab-scroll" title="Scroll tabs left">‹</button>
+      <div id="tabs"></div>
+      <button id="scroll-right" class="tab-scroll" title="Scroll tabs right">›</button>
+    </div>
+    <h1 id="note-title"></h1>
+    <div id="editor-wrap">
+      <div id="editor"></div>
+      <div id="preview" class="hidden"></div>
+      <div id="empty-state" class="hidden">
+        <div class="empty-state-inner">
+          <div class="empty-state-icon">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M12 11v6"/>
+              <path d="M9 14h6"/>
+            </svg>
+          </div>
+          <h2>No note selected</h2>
+          <p>Select a note from the sidebar, or create a new one.</p>
+          <button id="empty-new-note" title="Create a new note (Cmd/Ctrl+Alt+N)">Create a new note</button>
+        </div>
+      </div>
+    </div>
+    <footer id="statusbar">
+      <span id="status">Ready</span>
+      <span id="path"></span>
+      <button id="toggle-preview" title="Cycle view: edit / split / preview (Cmd/Ctrl+E)">edit</button>
+    </footer>
+  </main>
+
+  <div id="palette" class="hidden">
+    <div id="palette-box">
+      <input id="palette-input" type="text" placeholder="Search notes…" autocomplete="off" spellcheck="false" />
+      <div id="palette-results"></div>
+    </div>
+  </div>
+
+  <div id="note-dialog" class="hidden">
+    <div id="note-dialog-box">
+      <input id="note-dialog-input" type="text" placeholder="Note name…" autocomplete="off" spellcheck="false" />
+      <div id="note-dialog-actions">
+        <button id="note-dialog-cancel" title="Cancel (Esc)">Cancel</button>
+        <button id="note-dialog-create" title="Create (Enter)">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
